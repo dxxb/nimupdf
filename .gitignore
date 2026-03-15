@@ -1,0 +1,5 @@
+nimcache/
+extract_text
+test_basic
+*.o
+*.a
