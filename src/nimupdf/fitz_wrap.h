@@ -11,6 +11,8 @@
 
 #include <mupdf/fitz.h>
 
+const char *nimupdf_fz_version(void);
+
 int nimupdf_open_document(fz_context *ctx, const char *filename,
     fz_document **out_doc, char *errbuf, int errlen);
 

@@ -7,6 +7,11 @@
 #include <stdio.h>
 #include <string.h>
 
+const char *nimupdf_fz_version(void)
+{
+    return FZ_VERSION;
+}
+
 static void set_err(char *errbuf, int errlen, const char *msg)
 {
     if (errbuf && errlen > 0) {

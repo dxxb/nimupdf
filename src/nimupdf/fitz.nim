@@ -307,10 +307,11 @@ proc fz_free*(ctx: ptr FzContext; p: pointer)
 # Convenience: fz_new_context wraps fz_new_context_imp with the version
 # ---------------------------------------------------------------------------
 
-const FZ_VERSION* = "1.27.2"
+proc nimupdf_fz_version*(): cstring
+    {.importc, cdecl, header: "fitz_wrap.h".}
 
-template fzNewContext*(maxStore: csize_t = FZ_STORE_DEFAULT): ptr FzContext =
-  fz_new_context_imp(nil, nil, maxStore, FZ_VERSION)
+proc fzNewContext*(maxStore: csize_t = FZ_STORE_DEFAULT): ptr FzContext =
+  fz_new_context_imp(nil, nil, maxStore, nimupdf_fz_version())
 
 # ---------------------------------------------------------------------------
 # Safe C wrappers (translate fz_try/fz_catch to return codes)
